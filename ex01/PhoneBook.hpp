@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
 #ifndef __PhoneBook_H__
 #define __PhoneBook_H__
 #include "Contact.hpp"
 
 class PhoneBook {
 	public:
-		void	add(void);
+		int		add(void);
 		void	search(void);
 		PhoneBook(void);
 		~PhoneBook(void);

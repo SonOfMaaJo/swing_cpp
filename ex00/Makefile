@@ -1,11 +1,11 @@
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS_FILE = $(shell find . -name "*.cpp")
+SRCS_FILE = megaphone.cpp
 NAME = megaphone
 
 all : $(NAME)
 
-$(NAME) :
+$(NAME) : $(SRCS_FILE)
 	$(CPP) $(CFLAGS) $(SRCS_FILE) -o $@
 
 clean :

@@ -26,9 +26,19 @@ int main(void) {
 		"- EXIT: to quit the program and lost all the contacts forever\n";
 	while (1) {
 		std::cout << "\n\nWhat do you what to do now : ADD, SEARCH or EXIT.\n";
-		std::getline(std::cin, choice);
+		if (!std::getline(std::cin, choice))
+		{
+			std::cout << "Something went wrong." << std::endl;
+			break;
+		}
 		if (choice == "ADD")
-			phonebook.add();
+		{
+			if (phonebook.add() == 1)
+			{
+				std::cout << "Something went wrong." << std::endl;
+				break;
+			}
+		}
 		else if (choice == "SEARCH")
 			phonebook.search();
 		else if (choice == "EXIT")

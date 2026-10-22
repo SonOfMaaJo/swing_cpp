@@ -16,12 +16,12 @@ Contact::Contact() {
 	name = "";
 	last_name = "";
 	nick_name = "";
-	phone_number = 0;
+	phone_number = "";
 	darkest_secret = "";
 }
 
 Contact::Contact(std::string name_p, std::string last_name_p,
-		std::string nick_name_p, int phone_number_p,
+		std::string nick_name_p, std::string phone_number_p,
 		std::string darkest_secret_p)
 {
 	name = name_p;

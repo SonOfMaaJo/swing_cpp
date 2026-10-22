@@ -20,11 +20,11 @@ class Contact {
 		std::string name;
 		std::string last_name;
 		std::string	nick_name;
-		int			phone_number;
+		std::string	phone_number;
 		std::string	darkest_secret;
 		Contact(void);
 		Contact(std::string name_p, std::string last_name_p,
-				std::string nick_name_p, int phone_number_p,
+				std::string nick_name_p, std::string phone_number_p,
 				std::string darkest_secret_p);
 		~Contact(void);
 };

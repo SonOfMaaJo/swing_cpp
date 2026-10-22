@@ -1,16 +1,13 @@
 #include <iostream>
+#include <cctype>
 
 char	*capitalyze(char *str)
 {
 	int	i;
 
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= 'a' && str[i] <= 'z')
-			str[i] = str[i] - 32;
-		i++;
-	}
+	i = -1;
+	while (str[++i])
+			str[i] = std::toupper(str[i]);
 	return (str);
 }
 
