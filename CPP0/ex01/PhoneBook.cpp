@@ -6,13 +6,14 @@
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 14:39:15 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/07/25 16:01:29 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/02 20:23:42 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <iostream>
 #include <string>
 #include <iomanip>
 #include <cctype>
+#include <limits>
 #include <ios>
 #include "PhoneBook.hpp"
 
@@ -78,19 +79,19 @@ PhoneBook::~PhoneBook(void) {
 
 void	display_infos(int index, Contact contact, long unsigned int width) {
 	std::cout << std::right << std::setw(5) << index << "|" \
-		<< std::right << std::setw(width) << well_printable(contact.name,
+		<< std::right << std::setw(width) << well_printable(contact.getName(),
 				width) << "|" << std::right << std::setw(width) << \
-		well_printable(contact.last_name, width) << "|" << std::right << \
-		std::setw(width) << well_printable(contact.nick_name, width) << \
+		well_printable(contact.getLastName(), width) << "|" << std::right << \
+		std::setw(width) << well_printable(contact.getNickName(), width) << \
 		std::endl;
 }
 
 void	display_contact(Contact contact) {
-	std::cout << "first name : " << contact.name << std::endl;
-	std::cout << "last name : " << contact.last_name << std::endl;
-	std::cout << "nickname : " << contact.nick_name << std::endl;
-	std::cout << "phone number : " << contact.phone_number << std::endl;
-	std::cout << "darkest secret : " << contact.darkest_secret << std::endl;
+	std::cout << "first name : " << contact.getName() << std::endl;
+	std::cout << "last name : " << contact.getLastName() << std::endl;
+	std::cout << "nickname : " << contact.getNickName() << std::endl;
+	std::cout << "phone number : " << contact.getPhoneNumber() << std::endl;
+	std::cout << "darkest secret : " << contact.getDarkestSecret() << std::endl;
 }
 
 int	PhoneBook::add(void) {
@@ -123,36 +124,45 @@ int	PhoneBook::add(void) {
 	darkest_secret = get_not_empty_string();
 	if (darkest_secret.empty())
 		return (1);
-	contacts[contact_number] = Contact(name, last_name, nick_name,
+	contacts[contact_number % 8] = Contact(name, last_name, nick_name,
 			phone_number, darkest_secret);
-	contact_number = (contact_number + 1) % 8;
+	contact_number++;
 	return (0);
 }
 
 void	PhoneBook::search(void) {
 	int	i;
 	int	index;
+	int	max_num = 8;
 
 	if (contact_number == 0) {
 		std::cout << "Your phonebook is empty, add contact first.\n";
 		return ;
 	}
-	std::cout << "index" << "|" \
+	std::cout << std::right << std::setw(5) << "index" << "|" \
 		<< std::right << std::setw(10) << "first name" << "|" << std::right \
 		<< std::setw(10) << "last name" << "|" << std::right \
 		<< std::setw(10) << "nickmane" << std::endl;
 	i = 0;
-	while (i < contact_number)
+	if (contact_number <= 8)
+		max_num = contact_number;
+	while (i < max_num)
 	{
 		i++;
 		display_infos(i , contacts[i - 1], 10);
 	}
 	std::cout << "\n\n" << "Choose the index of entry to display : ";
 	std::cin >> index;
-	if (index <= 0 || index > contact_number)
+	if (std::cin.fail())
+	{
+		index = 0;
+		std::cin.clear();
+	}
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	if (index <= 0 || index > contact_number) {
 		std::cout << "Invalid choice, please try again." << std::endl;
+	}
 	else {
 		display_contact(contacts[index - 1]);
 	}
-	std::cin.ignore();
 }
