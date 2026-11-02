@@ -6,7 +6,7 @@
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/24 14:39:15 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/11/02 20:23:42 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/02 20:28:56 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <iostream>
@@ -78,7 +78,7 @@ PhoneBook::~PhoneBook(void) {
 }
 
 void	display_infos(int index, Contact contact, long unsigned int width) {
-	std::cout << std::right << std::setw(5) << index << "|" \
+	std::cout << std::right << std::setw(10) << index << "|" \
 		<< std::right << std::setw(width) << well_printable(contact.getName(),
 				width) << "|" << std::right << std::setw(width) << \
 		well_printable(contact.getLastName(), width) << "|" << std::right << \
@@ -139,7 +139,7 @@ void	PhoneBook::search(void) {
 		std::cout << "Your phonebook is empty, add contact first.\n";
 		return ;
 	}
-	std::cout << std::right << std::setw(5) << "index" << "|" \
+	std::cout << std::right << std::setw(10) << "index" << "|" \
 		<< std::right << std::setw(10) << "first name" << "|" << std::right \
 		<< std::setw(10) << "last name" << "|" << std::right \
 		<< std::setw(10) << "nickmane" << std::endl;
