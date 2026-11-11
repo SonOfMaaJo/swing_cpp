@@ -6,7 +6,7 @@
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 20:53:23 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/11/10 20:58:53 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/11 17:02:26 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class MateriaSource : public IMateriaSource {
 
 	private:
 		AMateria*	_knowledge[4];
+		int			nbknow;
 };
 
 #endif
