@@ -6,11 +6,12 @@
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 14:48:13 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/11/11 15:28:37 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/13 14:33:45 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "ICharacter.hpp"
 #include "Ice.hpp"
 
 std::string const& Ice::_type = "ice";
@@ -23,11 +24,12 @@ Ice::~Ice(void) {
 	std::cout << "Default Ice's destructor called" << std::endl;
 }
 
-Ice::Ice(const Ice& other) : AMateria(_type) {
+Ice::Ice(const Ice& other) : AMateria(other._type) {
 	std::cout << "Copy Ice's constructor called" << std::endl;
 }
 
-Ice&	Ice::operator=(const Ice&) {
+Ice&	Ice::operator=(const Ice& other) {
+	(void)other;
 	return (*this);
 }
 

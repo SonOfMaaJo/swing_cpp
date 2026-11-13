@@ -6,18 +6,19 @@
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 20:04:51 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/11/11 15:25:37 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/13 14:18:18 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __AMETERIA_H__
-#define __AMETERIA_H__
+#ifndef __AMATERIA_H__
+#define __AMATERIA_H__
 
 #include <string>
-#include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria {
-	protected :
+	protected:
 		std::string	const&	_type;
 
 	public:

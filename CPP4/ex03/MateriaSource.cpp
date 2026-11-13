@@ -6,11 +6,12 @@
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 20:53:08 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/11/11 17:10:10 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/13 15:44:40 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "AMateria.hpp"
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource(void) {
@@ -32,6 +33,8 @@ MateriaSource::MateriaSource(const MateriaSource& other) {
 
 MateriaSource::~MateriaSource(void) {
 	std::cout << "Default MateriaSource's destructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+		delete _knowledge[i];
 }
 
 
@@ -45,6 +48,7 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource& other) {
 				_knowledge[i] = other._knowledge[i]->clone();
 		}
 	}
+	return (*this);
 }
 
 void	MateriaSource::learnMateria(AMateria* m) {
@@ -54,7 +58,7 @@ void	MateriaSource::learnMateria(AMateria* m) {
 }
 
 AMateria*	MateriaSource::createMateria(std::string const& type) {
-	for (int i = 0; i <= nbknow && i < 4; i++) {
+	for (int i = 0; i < nbknow && i < 4; i++) {
 		if (_knowledge[i]) {
 			if (_knowledge[i]->getType() == type)
 				return (_knowledge[i]->clone());

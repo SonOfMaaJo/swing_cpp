@@ -5,6 +5,7 @@ SRCS_FILE = main.cpp \
 			Character.cpp \
 			Cure.cpp \
 			Ice.cpp \
+			MateriaSource.cpp
 
 INCLUDES = AMateria.hpp \
 		   Character.hpp \

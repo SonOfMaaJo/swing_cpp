@@ -6,11 +6,12 @@
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 15:44:18 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/11/11 16:56:21 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/13 14:30:38 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "AMateria.hpp"
 #include "Character.hpp"
 
 Character::Character(std::string const& name): _name(name) {
@@ -70,5 +71,3 @@ void	Character::use(int idx, ICharacter& target) {
 	if (idx >= 0 && idx < 4 && _slot[idx])
 		_slot[idx]->use(target);
 }
-
-

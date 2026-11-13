@@ -6,7 +6,7 @@
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 20:04:41 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/11/11 17:17:15 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/13 14:38:06 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,6 @@ std::string	const& AMateria::getType(void) const {
 	return (_type);
 }
 
+void	AMateria::use(ICharacter& target) {
+	(void)target;
+}
