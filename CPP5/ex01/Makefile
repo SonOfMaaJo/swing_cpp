@@ -1,9 +1,10 @@
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS_FILE = main.cpp \
-			Bureaucrat.cpp
+			Bureaucrat.cpp \
+			Form.cpp
 
-INCLUDES = Bureaucrat.hpp
+INCLUDES = Bureaucrat.hpp Form.hpp
 
 NAME = out
 

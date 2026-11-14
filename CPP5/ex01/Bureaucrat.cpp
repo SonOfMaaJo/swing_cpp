@@ -6,12 +6,13 @@
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 17:48:41 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/11/13 19:50:08 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/14 18:33:35 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade): _name(name) {
 	std::cout << "Default Bureaucrat's constructor called" << std::endl;
@@ -26,7 +27,7 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade): _name(name) {
 
 Bureaucrat::GradeTooLowException::GradeTooLowException(void) {
 	std::cout << "Default GradeTooLowException's constructor called" << std::endl;
-	_message = "grade value is too low";
+	_message = "grade is too low";
 }
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(void) {
@@ -84,6 +85,7 @@ void	Bureaucrat::setGrade(int grade) {
 
 void	Bureaucrat::incrementGrade(void) {
 	int	grade = _grade - 1;
+	void				signForm(Form& form);
 
 	if (grade < 1)
 		throw GradeTooHighException();
@@ -98,6 +100,21 @@ void	Bureaucrat::decrementGrade(void) {
 		throw GradeTooLowException();
 	else
 		_grade = grade;
+}
+
+void	Bureaucrat::signForm(Form& form) {
+	try {
+		if (form.getIsSign() == true) {
+			std::cout << form.getName() << " is already sign." << std::endl;
+			return ;
+		}
+
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	} catch (std::exception &e) {
+		std::cout << _name << " couldn't sign " << form.getName() <<  " " <<
+			e.what() << std::endl;
+	}
 }
 
 

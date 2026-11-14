@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 20:44:54 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/11/13 21:31:27 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/14 18:47:44 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 
 class	Bureaucrat;
 
-class	Form {
+class	AForm {
 	public:
 		class	GradeTooLowException: public std::exception {
 			private:
 				std::string	_message;
 			public:
 				GradeTooLowException(void);
-				~GradeTooLowException(void);
+				~GradeTooLowException(void) throw();
 				const char*	what(void) const throw();
 		};
 
@@ -34,15 +34,15 @@ class	Form {
 				std::string _message;
 			public:
 				GradeTooHighException(void);
-				~GradeTooHighException(void);
+				~GradeTooHighException(void) throw();
 				const char* what(void) const throw();
 		};
 
-		Form(std::string const name,
+		AForm(std::string const name,
 				int gradForSign, int gradForExc);
-		~Form(void);
-		Form(const Form& other);
-		Form&	operator=(const Form& other);
+		~AForm(void);
+		AForm(const AForm& other);
+		AForm&	operator=(const AForm& other);
 		std::string const	getName(void) const;
 		bool				getIsSign(void) const;
 		int					getGradForSign(void) const;
@@ -55,5 +55,7 @@ class	Form {
 		int					_gradForSign;
 		int					_gradForExc;
 };
+
+std::ostream&	operator<<(std::ostream& os, const AForm& form);
 
 #endif
