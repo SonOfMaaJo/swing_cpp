@@ -28,7 +28,7 @@ int main(int argc, char **argv)
     switch (index) {
         case 4:
             std::cout << "[ Probably complaining about" << \
-            " insignificant problemns ]\n";
+            " insignificant problems ]\n";
             break;
         default:
             for(int i = index; i < 4; i++) {

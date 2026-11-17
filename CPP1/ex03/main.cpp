@@ -6,13 +6,12 @@
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 18:33:14 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/10/28 18:57:31 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/17 16:41:01 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 #include "HumanB.hpp"
-#include <iostream>
 
 int	main(void) {
 	{

@@ -6,57 +6,65 @@
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 19:09:48 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/10/28 20:07:58 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/17 16:51:27 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <sstream>
 
-void	replace(std::string& lign, std::string s1, std::string s2) {
-	size_t	pos = lign.find(s1);
+void	replace(std::string& content, std::string s1, std::string s2) {
+	size_t	pos = content.find(s1);
 	std::string	sub1;
 	std::string	sub2;
 
 	while (pos != std::string::npos) {
-		sub1 = lign.substr(0, pos);
-		sub2 = lign.substr(pos + s1.length());
-		lign = sub1 + s2 + sub2;
-		pos = lign.find(s1, pos + s2.length());
+		sub1 = content.substr(0, pos);
+		sub2 = content.substr(pos + s1.length());
+		content = sub1 + s2 + sub2;
+		pos = content.find(s1, pos + s2.length());
 	}
 }
 
 int	main(int argc, char **argv) {
-	std::string	s1;
-	std::string	s2;
-
 	if (argc != 4) {
-		std::cout << "Usage: ./out <filename> <old_string> <new_string>";
-		return (0);
+		std::cerr << "Usage: " << argv[0] << \
+			" <filename> <old_string> <new_string>" << std::endl;
+		return (1);
 	}
 
-	std::ifstream	file1(argv[1]);
-	if (file1.is_open()) {
-		std::string	lign;
+	std::string	filename = argv[1];
+	std::string	s1 = argv[2];
+	std::string	s2 = argv[3];
 
-		s1 = argv[2];
-		s2 = argv[3];
-		std::ofstream	file2((std::string(argv[1]) + ".repalce").c_str());
-		if (file2.is_open()) {
-			while (std::getline(file1, lign))
-			{
-				replace(lign, s1, s2);
-				file2 << lign << std::endl;
-			}
-			file2.close();
-		} else {
-			std::cerr << "fail to create '" << argv[1] << ".replace' file." << \
-				std::endl;
-		}
-		file1.close();
-	} else {
-		std::cerr << "fail to read '" << argv[1] << "' file." <<  std::endl;
+	if (s1.empty()) {
+		std::cerr << "Error: <old_string> must not be empty." << std::endl;
+		return (1);
 	}
+
+	std::ifstream	file1(filename.c_str());
+	if (!file1.is_open()) {
+		std::cerr << "Error: fail to read '" << filename << "' file." << \
+			std::endl;
+		return (1);
+	}
+
+	std::stringstream	buffer;
+	buffer << file1.rdbuf();
+	file1.close();
+
+	std::string	content = buffer.str();
+	replace(content, s1, s2);
+
+	std::ofstream	file2((filename + ".replace").c_str());
+	if (!file2.is_open()) {
+		std::cerr << "Error: fail to create '" << filename << \
+			".replace' file." << std::endl;
+		return (1);
+	}
+	file2 << content;
+	file2.close();
 	return (0);
 }

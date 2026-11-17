@@ -4,12 +4,16 @@ SRCS_FILE = main.cpp \
 			Harl.cpp
 
 INCLUDES = Harl.hpp
+OBJS_FILE = $(SRCS_FILE:.cpp=.o)
 NAME = harlFilter
 
 all : $(NAME)
 
-$(NAME) : $(SRCS_FILE) $(INCLUDES)
-	$(CPP) $(CFLAGS) $(SRCS_FILE) -o $@
+$(NAME) : $(OBJS_FILE)
+	$(CPP) $(CFLAGS) $(OBJS_FILE) -o $@
+
+%.o : %.cpp $(INCLUDES)
+	$(CPP) $(CFLAGS) -c $< -o $@
 
 clean :
 	rm -f $(OBJS_FILE)

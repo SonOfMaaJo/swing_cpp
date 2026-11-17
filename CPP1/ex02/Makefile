@@ -1,12 +1,17 @@
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS_FILE = main.cpp
+INCLUDES =
+OBJS_FILE = $(SRCS_FILE:.cpp=.o)
 NAME = out
 
 all : $(NAME)
 
-$(NAME) : $(SRCS_FILE)
-	$(CPP) $(CFLAGS) $(SRCS_FILE) -o $@
+$(NAME) : $(OBJS_FILE)
+	$(CPP) $(CFLAGS) $(OBJS_FILE) -o $@
+
+%.o : %.cpp $(INCLUDES)
+	$(CPP) $(CFLAGS) -c $< -o $@
 
 clean :
 	rm -f $(OBJS_FILE)

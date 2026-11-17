@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _ZOMBIE_H__
-#define _ZOMBIE_H__
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 #include <string>
 
 class Zombie {

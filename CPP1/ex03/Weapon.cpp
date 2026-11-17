@@ -6,7 +6,7 @@
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 17:33:41 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/10/28 18:25:07 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/17 16:56:17 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Weapon::Weapon(void) {
 
 }
 
-const	std::string& Weapon::getType(void) {
+const	std::string& Weapon::getType(void) const {
 	const std::string& ref = type;
 
 	return (ref);

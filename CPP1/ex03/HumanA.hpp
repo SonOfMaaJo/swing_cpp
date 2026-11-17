@@ -6,12 +6,12 @@
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 17:43:13 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/10/28 19:08:33 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/17 16:54:01 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _HUMANA_H__
-#define _HUMANA_H__
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
 #include "Weapon.hpp"
 
@@ -22,7 +22,7 @@ public :
 	~HumanA(void);
 
 private :
-	Weapon*		weapon;
+	Weapon		&weapon;
 	std::string	name;
 };
 

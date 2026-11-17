@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _HARL_H__
-#define _HARL_H__
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <string>
 

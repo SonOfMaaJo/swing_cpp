@@ -6,18 +6,18 @@
 /*   By: vnaoussi <vnaoussi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 17:30:03 by vnaoussi          #+#    #+#             */
-/*   Updated: 2026/10/28 18:24:41 by vnaoussi         ###   ########.fr       */
+/*   Updated: 2026/11/17 16:54:37 by vnaoussi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _WEAPON_H__
-#define _WEAPON_H__
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
 #include <string>
 
 class Weapon {
 public :
-	const std::string&	getType(void);
+	const std::string&	getType(void) const;
 	void				setType(std::string new_type);
 
 	Weapon(std::string type);
