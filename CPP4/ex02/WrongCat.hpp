@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	_WRONGCAT_H__
-#define	_WRONGCAT_H__
+#ifndef	WRONGCAT_HPP
+#define	WRONGCAT_HPP
 
 #include "WrongAnimal.hpp"
 

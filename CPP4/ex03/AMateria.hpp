@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __AMATERIA_H__
-#define __AMATERIA_H__
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 
 #include <string>
 

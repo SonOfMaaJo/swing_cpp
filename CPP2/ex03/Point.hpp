@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _POINT_H__
-#define _POINT_H__
+#ifndef POINT_HPP
+#define POINT_HPP
 
  #include "Fixed.hpp"
 

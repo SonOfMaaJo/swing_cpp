@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _ANIMAL_H__
-#define _ANIMAL_H__
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <string>
 

@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ICE_H__
-#define __ICE_H__
+#ifndef ICE_HPP
+#define ICE_HPP
 
 #include "AMateria.hpp"
 

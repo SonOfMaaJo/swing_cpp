@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	__CURE_H__
-#define	__CURE_H__
+#ifndef	CURE_HPP
+#define	CURE_HPP
 
 #include "AMateria.hpp"
 

@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _DOG_H__
-#define _DOG_H__
+#ifndef DOG_HPP
+#define DOG_HPP
 
 #include "AAnimal.hpp"
 #include "Brain.hpp"

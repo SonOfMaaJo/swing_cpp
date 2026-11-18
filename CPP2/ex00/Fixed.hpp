@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FIXED_H__
-#define _FIXED_H__
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 class	Fixed {
 	public :

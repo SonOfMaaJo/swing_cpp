@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ICHARACTER_H__
-#define __ICHARACTER_H__
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
 
 #include <string>
 

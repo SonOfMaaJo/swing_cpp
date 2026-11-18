@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __BRAIN_H__
-#define __BRAIN_H__
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
 #include <string>
 
