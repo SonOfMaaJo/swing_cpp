@@ -39,8 +39,8 @@ MateriaSource::~MateriaSource(void) {
 
 
 MateriaSource&	MateriaSource::operator=(const MateriaSource& other) {
-	nbknow = other.nbknow;
 	if (this != &other) {
+		nbknow = other.nbknow;
 		for (int i = 0; i < 4; i++) {
 			delete _knowledge[i];
 			_knowledge[i] = 0;
@@ -52,6 +52,11 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource& other) {
 }
 
 void	MateriaSource::learnMateria(AMateria* m) {
+	if (!m)
+		return ;
+	for (int i = 0; i < nbknow; i++)
+		if (_knowledge[i] == m)
+			return ;
 	if (nbknow < 4) {
 		_knowledge[nbknow++] = m;
 	}

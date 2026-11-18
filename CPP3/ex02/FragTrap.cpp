@@ -14,9 +14,11 @@
 #include <string>
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(void) {
+FragTrap::FragTrap(void) : ClapTrap() {
 	std::cout << "FragTrap Default constructor called !" << std::endl;
-	std::cout << "Missing name !";
+	_hitPoint = 100;
+	_energyPoints = 100;
+	_attackDamage = 30;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
@@ -34,7 +36,8 @@ FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) {
 	std::cout << "FragTrap copy constructor called !" << std::endl;
 }
 
-FragTrap&	FragTrap::operator=(const ClapTrap& other) {
+FragTrap&	FragTrap::operator=(const FragTrap& other) {
+	std::cout << "FragTrap copy assignment called !" << std::endl;
 	if (this != &other) {
 		ClapTrap::operator=(other);
 	}
@@ -59,7 +62,7 @@ void	FragTrap::attack(const std::string& target) {
 }
 
 void	FragTrap::highFivesGuys(void) {
-	if (_hitPoint || _energyPoints) {
+	if (_hitPoint <= 0 || _energyPoints <= 0) {
 		std::cout << "FragTrap " << _name
 			<< " don't have enough energy or hit points" << std::endl;
 		return ;

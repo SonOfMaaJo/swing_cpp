@@ -37,6 +37,7 @@ Character::~Character(void) {
 
 Character&	Character::operator=(const Character& other) {
 	if (this != &other) {
+		_name = other._name;
 		for (int i = 0; i < 4; i++)
 		{
 			delete _slot[i];
@@ -54,8 +55,13 @@ std::string const&	Character::getName(void) const {
 }
 
 void	Character::equip(AMateria* m) {
-	size_t	i = 0;
+	int	i = 0;
 
+	if (!m)
+		return ;
+	for (int j = 0; j < 4; j++)
+		if (_slot[j] == m)
+			return ;
 	while (i < 4 && _slot[i])
 		i++;
 	if (i < 4)

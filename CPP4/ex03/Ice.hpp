@@ -16,9 +16,6 @@
 #include "AMateria.hpp"
 
 class Ice: public AMateria {
-	private:
-		static	std::string const& _type;
-
 	public:
 		Ice(void);
 		Ice(const Ice& other);

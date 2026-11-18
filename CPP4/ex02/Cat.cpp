@@ -24,9 +24,8 @@ Cat::~Cat(void) {
 	delete _brain;
 }
 
-Cat::Cat(const Cat& other) : AAnimal() {
+Cat::Cat(const Cat& other) : AAnimal(other) {
 	std::cout << "Copy Cat's constructor called" << std::endl;
-	_type = other.getType();
 	_brain = new Brain();
 	for (int i = 0; i < 100; i++)
 		_brain->setIdeas(i, other._brain->getIdeas(i));
@@ -34,7 +33,7 @@ Cat::Cat(const Cat& other) : AAnimal() {
 
 Cat&	Cat::operator=(const Cat& other) {
 	if (this != &other) {
-		this->_type = other.getType();
+		AAnimal::operator=(other);
 		for (int i = 0; i < 100; i++)
 			_brain->setIdeas(i, other._brain->getIdeas(i));
 	}

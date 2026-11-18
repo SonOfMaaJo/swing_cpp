@@ -24,9 +24,8 @@ Dog::~Dog(void) {
 	delete _brain;
 }
 
-Dog::Dog(const Dog& other) : AAnimal() {
+Dog::Dog(const Dog& other) : AAnimal(other) {
 	std::cout << "Copy Dog's constructor called" << std::endl;
-	_type = other.getType();
 	_brain = new Brain();
 	for (int i = 0; i < 100; i++)
 		_brain->setIdeas(i, other._brain->getIdeas(i));
@@ -34,7 +33,7 @@ Dog::Dog(const Dog& other) : AAnimal() {
 
 Dog&	Dog::operator=(const Dog& other) {
 	if (this != &other) {
-		this->_type = other.getType();
+		AAnimal::operator=(other);
 		for (int i = 0; i < 100; i++)
 			_brain->setIdeas(i, other._brain->getIdeas(i));
 	}

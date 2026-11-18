@@ -1,7 +1,6 @@
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS_FILE = main.cpp \
-			Animal.cpp \
 			AAnimal.cpp \
 			Brain.cpp \
 			Dog.cpp \
@@ -9,20 +8,23 @@ SRCS_FILE = main.cpp \
 			WrongAnimal.cpp \
 			WrongCat.cpp
 
-INCLUDES = Animal.hpp \
-		   Dog.hpp \
+INCLUDES = Dog.hpp \
 		   Cat.hpp \
 		   WrongCat.hpp \
 		   WrongAnimal.hpp \
 		   Brain.hpp \
 		   AAnimal.hpp
 
+OBJS_FILE = $(SRCS_FILE:.cpp=.o)
 NAME = out
 
 all : $(NAME)
 
-$(NAME) : $(SRCS_FILE) $(INCLUDES)
-	$(CPP) $(CFLAGS) $(SRCS_FILE) -o $@
+$(NAME) : $(OBJS_FILE)
+	$(CPP) $(CFLAGS) $(OBJS_FILE) -o $@
+
+%.o : %.cpp $(INCLUDES)
+	$(CPP) $(CFLAGS) -c $< -o $@
 
 clean :
 	rm -f $(OBJS_FILE)

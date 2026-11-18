@@ -41,8 +41,8 @@ class	Fixed {
 		bool	operator>=(const Fixed& other) const;
 		bool	operator==(const Fixed& other) const;
 		bool	operator!=(const Fixed& other) const;
-		Fixed&	min(Fixed& one, Fixed& other);
-		Fixed&	max(Fixed& one, Fixed& other);
+		static Fixed&		min(Fixed& one, Fixed& other);
+		static Fixed&		max(Fixed& one, Fixed& other);
 		static const Fixed&	min(const Fixed& one, const Fixed& other);
 		static const Fixed&	max(const Fixed& one, const Fixed& other);
 

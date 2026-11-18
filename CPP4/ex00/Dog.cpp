@@ -22,14 +22,13 @@ Dog::~Dog(void) {
 	std::cout << "Default Dog's destructor called" << std::endl;
 }
 
-Dog::Dog(const Dog& other) : Animal() {
+Dog::Dog(const Dog& other) : Animal(other) {
 	std::cout << "Copy Dog's constructor called" << std::endl;
-	_type = other.getType();
 }
 
 Dog&	Dog::operator=(const Dog& other) {
 	if (this != &other) {
-		this->_type = other.getType();
+		Animal::operator=(other);
 	}
 
 	return (*this);

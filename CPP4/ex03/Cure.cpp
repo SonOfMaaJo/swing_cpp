@@ -14,9 +14,7 @@
 #include "ICharacter.hpp"
 #include "Cure.hpp"
 
-std::string	const& Cure::_type = "cure";
-
-Cure::Cure(void): AMateria(_type) {
+Cure::Cure(void): AMateria("cure") {
 	std::cout << "Default Cure's constructor called" << std::endl;
 }
 
@@ -24,17 +22,17 @@ Cure::~Cure(void) {
 	std::cout << "Default Cure's destructor called" << std::endl;
 }
 
-Cure::Cure(const Cure& other): AMateria(other._type) {
+Cure::Cure(const Cure& other) : AMateria(other) {
 	std::cout << "Copy Cure's constructor called" << std::endl;
 }
 
 Cure&	Cure::operator=(const Cure& other) {
-	(void)other;
+	AMateria::operator=(other);
 	return (*this);
 }
 
 AMateria*	Cure::clone(void) const {
-	AMateria*	clone_ = new Cure();
+	AMateria*	clone_ = new Cure(*this);
 
 	return (clone_);
 }

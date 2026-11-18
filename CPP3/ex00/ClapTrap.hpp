@@ -19,7 +19,7 @@ class	ClapTrap{
 	public:
 		ClapTrap(void);
 		ClapTrap(std::string name);
-		~ClapTrap(void);
+		virtual ~ClapTrap(void);
 		ClapTrap(const ClapTrap& other);
 		ClapTrap&	operator=(const ClapTrap& other);
 		void		setName(std::string name);
@@ -36,8 +36,8 @@ class	ClapTrap{
 
 	private:
 		std::string		_name;
-		unsigned int	_hitPoint;
-		unsigned int	_energyPoints;
+		int				_hitPoint;
+		int				_energyPoints;
 		unsigned int	_attackDamage;
 };
 

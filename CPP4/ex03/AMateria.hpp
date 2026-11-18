@@ -19,10 +19,13 @@ class ICharacter;
 
 class AMateria {
 	protected:
-		std::string	const&	_type;
+		std::string	_type;
 
 	public:
+		AMateria(void);
 		AMateria(std::string const& type);
+		AMateria(const AMateria& other);
+		AMateria&	operator=(const AMateria& other);
 		virtual	~AMateria(void);
 		std::string	const& getType() const;
 		virtual AMateria* clone() const = 0;

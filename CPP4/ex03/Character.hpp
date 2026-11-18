@@ -27,7 +27,7 @@ class Character : public ICharacter {
 		void				use(int idx, ICharacter& target);
 
 	private:
-		std::string const&	_name;
+		std::string			_name;
 		AMateria*			_slot[4];
 };
 

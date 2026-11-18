@@ -36,9 +36,13 @@ Brain&	Brain::operator=(const Brain& other) {
 }
 
 void	Brain::setIdeas(int i, std::string ideas) {
+	if (i < 0 || i >= 100)
+		return ;
 	_ideas[i] = ideas;
 }
 
 std::string	Brain::getIdeas(int i) const {
+	if (i < 0 || i >= 100)
+		return ("");
 	return (_ideas[i]);
 }

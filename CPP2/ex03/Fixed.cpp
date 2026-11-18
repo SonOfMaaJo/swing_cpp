@@ -71,7 +71,11 @@ Fixed Fixed::operator-(const Fixed& other) const {
 }
 
 Fixed Fixed::operator*(const Fixed& other) const {
-	return Fixed(this->toFloat() * other.toFloat());
+	Fixed	result;
+	long	raw = static_cast<long>(this->_value) * other._value;
+
+	result.setRawBits(static_cast<int>(raw >> _fract_bits));
+	return (result);
 }
 
 Fixed&	Fixed::operator++() {
@@ -101,25 +105,16 @@ Fixed	Fixed::operator--(int) {
 }
 
 Fixed	Fixed::operator/(const Fixed& other) const {
-	if (other.getRawBits() == 0) {
+	if (other._value == 0) {
 		std::cout << "Error: Division by zero" << std::endl;
 		return (Fixed());
 	}
 
-	bool	is_negative = false;
-	int		num = this->_value;
-	int		dem = other.getRawBits();
-	if ((num < 0 && dem > 0) || (num > 0 && dem < 0))
-		is_negative = true;
-	if (num < 0)
-		num = -num;
-	if (dem < 0)
-		dem = -dem;
+	Fixed	result;
+	long	num = static_cast<long>(this->_value) << _fract_bits;
 
-	int result = ((num << _fract_bits) + dem / 2) / dem;
-	if (is_negative)
-		result = -result;
-	return (Fixed(result));
+	result.setRawBits(static_cast<int>(num / other._value));
+	return (result);
 }
 
 bool	Fixed::operator<(const Fixed& other) const {

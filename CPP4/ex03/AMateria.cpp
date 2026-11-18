@@ -17,6 +17,20 @@ AMateria::AMateria(std::string const& type) : _type(type) {
 	std::cout << "AMateria's constructor called !" << std::endl;
 }
 
+AMateria::AMateria(void) : _type("") {
+	std::cout << "Default AMateria's constructor called !" << std::endl;
+}
+
+AMateria::AMateria(const AMateria& other) : _type(other._type) {
+	std::cout << "Copy AMateria's constructor called !" << std::endl;
+}
+
+AMateria&	AMateria::operator=(const AMateria& other) {
+	// Le type d'une materia ne doit pas changer : on ne copie rien.
+	(void)other;
+	return (*this);
+}
+
 AMateria::~AMateria(void) {
 	std::cout << "Default AMateria's destructor called !" << std::endl;
 }

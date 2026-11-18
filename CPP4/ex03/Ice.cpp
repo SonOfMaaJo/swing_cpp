@@ -14,9 +14,7 @@
 #include "ICharacter.hpp"
 #include "Ice.hpp"
 
-std::string const& Ice::_type = "ice";
-
-Ice::Ice(void) : AMateria(_type) {
+Ice::Ice(void) : AMateria("ice") {
 	std::cout << "Default Ice's constructor called" << std::endl;
 }
 
@@ -24,17 +22,17 @@ Ice::~Ice(void) {
 	std::cout << "Default Ice's destructor called" << std::endl;
 }
 
-Ice::Ice(const Ice& other) : AMateria(other._type) {
+Ice::Ice(const Ice& other) : AMateria(other) {
 	std::cout << "Copy Ice's constructor called" << std::endl;
 }
 
 Ice&	Ice::operator=(const Ice& other) {
-	(void)other;
+	AMateria::operator=(other);
 	return (*this);
 }
 
 AMateria*	Ice::clone(void) const {
-	AMateria*	clone_ = new Ice();
+	AMateria*	clone_ = new Ice(*this);
 
 	return (clone_);
 }

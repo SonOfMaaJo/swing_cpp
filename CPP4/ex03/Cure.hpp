@@ -16,9 +16,6 @@
 #include "AMateria.hpp"
 
 class Cure: public AMateria {
-	private:
-		static std::string const& _type;
-
 	public:
 		Cure(void);
 		~Cure(void);

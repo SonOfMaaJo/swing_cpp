@@ -18,9 +18,11 @@ const int	ScavTrap::defaultHitPoints = 100;
 const int	ScavTrap::defaultEnergyPoints = 50;
 const int	ScavTrap::defaultAttackDamage = 20;
 
-ScavTrap::ScavTrap(void) {
+ScavTrap::ScavTrap(void) : ClapTrap() {
 	std::cout << "ScavTrap Default constructor called !" << std::endl;
-	std::cout << "Missing name !";
+	_hitPoint = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
@@ -38,7 +40,8 @@ ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
 	std::cout << "ScavTrap copy constructor called !" << std::endl;
 }
 
-ScavTrap&	ScavTrap::operator=(const ClapTrap& other) {
+ScavTrap&	ScavTrap::operator=(const ScavTrap& other) {
+	std::cout << "ScavTrap copy assignment called !" << std::endl;
 	if (this != &other) {
 		ClapTrap::operator=(other);
 	}
@@ -64,9 +67,10 @@ void	ScavTrap::attack(const std::string& target) {
 
 
 void	ScavTrap::guardGate(void) {
-	if (_hitPoint == 0 || _energyPoints == 0) {
+	if (_hitPoint <= 0 || _energyPoints <= 0) {
 		std::cout << "ScavTrap " << _name <<
 			" don't have enough energy or hit point." << std::endl;
+		return ;
 	}
 	std::cout << "ScavTrap " << _name << " is now in Gate keeper mode"
 		<< std::endl;
